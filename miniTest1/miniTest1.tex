@@ -2,6 +2,9 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{tcolorbox}
+
+\newtcolorbox{mybox}{colback=red!5!white,colframe=red!75!black}
 
 \title{Winter 2022 MTH 261 Mini Test 1}
 \author{Marvin Lin}
@@ -12,6 +15,19 @@
 \maketitle
 
 \section*{Question 1}
+
+\begin{mybox}
+Consider the system of equations bellow:
+\begin{alignat*}{4}
+ x & {}-{} & 7y & {} {} &    {}+{} & 6t & {}={} &  5 \\
+   & {} {} &    & {} {} &  z {}-{} & 2t & {}={} & -3 \\
+-x & {}+{} & 7y & {}-{} & 4z {}+{} & 2t & {}={} &  7
+\end{alignat*}
+(a) Write the system of equations as a vector equation.\\
+(b) Write the system as a matrix equation A\textbf{x}=\textbf{b}\\
+(c) Solve the system of equations using linear algebra techniques. Indicate your solution in parametric vector form.
+\end{mybox}
+
 \subsubsection*{Part (a)}
 \begin{equation}
 \begin{bmatrix} x \\ 0 \\ -x \end{bmatrix}
@@ -169,6 +185,16 @@ t
 
 \clearpage
 \section*{Question 2}
+
+\begin{mybox}
+\begin{equation*}
+Let \: \mathbf{u}=\begin{bmatrix} 1 \\ -2 \\ 2 \\ \end{bmatrix},\mathbf{v}=\begin{bmatrix} 0 \\ 5 \\ 5 \\ \end{bmatrix},\mathbf{w}=\begin{bmatrix} -2 \\ 0 \\ -8 \\ \end{bmatrix},\mathbf{b}=\begin{bmatrix} -1 \\ -11 \\ -6 \\ \end{bmatrix}.
+\end{equation*}
+\begin{equation*}
+Is \: \mathbf{b}\in\mathrm{span}\{\mathbf{u}, \mathbf{v}, \mathbf{w}\}?
+\end{equation*}
+\end{mybox}
+
 \begin{equation}
 \begin{bmatrix}
 1 & 0 & -2 \\ 
@@ -246,6 +272,16 @@ Since the equation above is a false statement, the following can be determined:
 
 \clearpage
 \section*{Question 3}
+
+\begin{mybox}
+\begin{equation*}
+Let \: \mathbf{u}=\begin{bmatrix} -3 \\ 2 \\ \end{bmatrix} \: and \: \mathbf{v}=\begin{bmatrix} -1 \\ -6 \\  \end{bmatrix}.
+\end{equation*}
+\begin{center}
+Draw a Cartesian plane to draw the following graphs on.\\ Graph \textbf{u}, \textbf{v}, 2\textbf{u}, -\textbf{v}, 2\textbf{u} - \textbf{v}.
+\end{center}
+\end{mybox}
+
 \begin{equation*}
 \textbf{u}
 =
