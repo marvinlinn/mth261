@@ -1,11 +1,8 @@
 *.log 
 *.blg
 *.aux
-*.fdb_matexmk
+*.fdb_latexmk
 *.fls
 *.bbl
 *.synctex.gz
 *.toc
-
-
-
