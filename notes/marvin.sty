@@ -1,0 +1,147 @@
+% marvin.sty
+% This is an all-in-one package designed by Marvin Lin for Notetaking
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%     marvin.sty     %%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{marvin}[2022/01/26 Marvin]
+
+%%%%%%%%%%%%%     PACKAGES     %%%%%%%%%%%%%
+
+% Math Packages
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+
+% Visual Packages
+\RequirePackage{graphicx}
+\RequirePackage{amsthm}
+\RequirePackage{thmtools}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{mdframed}
+\RequirePackage{graphicx}
+
+% Font Packages
+\RequirePackage[T1]{fontenc}
+\RequirePackage{helvet}
+
+%%%%%%%%%%%%%     DEFINITIONS     %%%%%%%%%%%%%
+
+%%% mdframed Definitions (Used for Theorem Definitions) {mdframed}
+
+\mdfdefinestyle{mdblackbox}{
+	linewidth=2pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	linecolor=black,
+	backgroundcolor=RedViolet!5!gray!10,
+}
+
+\mdfdefinestyle{mdyellowbox}{
+	linewidth=3pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	linecolor=yellow,
+	backgroundcolor=yellow!5!gray!5,
+}
+
+\mdfdefinestyle{mdredbox}{
+	linewidth=0pt,
+	frametitleaboveskip=5pt,
+	frametitlebelowskip=0pt,
+	skipbelow=2pt,
+	frametitlefont=\bfseries,
+	innertopmargin=6pt,
+	innerbottommargin=8pt,
+	nobreak=true,
+	backgroundcolor=Salmon!5,
+	linecolor=RawSienna,
+}
+
+\mdfdefinestyle{mdbluebox}{
+	linewidth=0pt,
+	frametitleaboveskip=0pt,
+	frametitlebelowskip=0pt,
+	skipbelow=0pt,
+	frametitlefont=\bfseries,
+	innertopmargin=6pt,
+	innerbottommargin=8pt,
+	nobreak=true,
+	backgroundcolor=cyan!10,	
+	topline=false,
+	bottomline=false,	
+	frametitlebelowskip=0pt,	
+	frametitleaboveskip=0pt,	
+}
+
+%%%% Theorem Definitions {amsthm, thmtools}
+
+% Remark
+\declaretheoremstyle[
+	headfont=\bfseries\itshape,
+	bodyfont=\normalfont\small,
+	spaceabove=5pt,
+	spacebelow=0pt,
+	mdframed={style=mdblackbox}
+]{thmblackbox}
+		
+\declaretheorem[
+	style=thmblackbox,
+	numbered=no,
+]{remark}
+
+% Example
+\declaretheoremstyle[
+	headfont=\bfseries\color{RawSienna}\fontfamily{phv}\selectfont,
+	mdframed={style=mdredbox},
+	headpunct={\\[3pt]},
+	postheadspace={0pt},
+]{thmredbox}
+		
+\declaretheorem[
+	style=thmredbox,
+	numberwithin=section
+]{example}
+
+% Proposition
+\declaretheoremstyle[
+	headfont=\bfseries,
+	bodyfont=\normalfont\small,
+	spaceabove=0pt,
+	mdframed={style=mdyellowbox}
+]{thmyellowbox}
+		
+\declaretheorem[
+	style=thmyellowbox,
+	numberwithin=section
+]{solution}
+
+% Definition
+\declaretheoremstyle[
+	headfont=\bfseries\color{cyan!75!blue!90}\fontfamily{phv}\selectfont,
+	mdframed={style=mdbluebox},
+	headpunct={\\[3pt]},
+	postheadspace={0pt},
+]{thmbluebox}
+		
+\declaretheorem[
+	style=thmbluebox,
+	numberwithin=chapter
+]{definition}
+
+
+
+
+
+\mdfdefinestyle{theoremstyle}{%
+linecolor=red,linewidth=2pt,%
+frametitlerule=true,%
+frametitlebackgroundcolor=gray!20,
+innertopmargin=\topskip,
+}
+\mdtheorem[style=theoremstyle]{definition}{Definition}
