@@ -1,0 +1,627 @@
+\documentclass{report}
+
+%%%%%%%%%%%%%     PACKAGES     %%%%%%%%%%%%%
+
+\usepackage{marvin} %Custom Package by Marvin Lin
+\usepackage{fancyhdr}
+
+%%%%%%%%%%%%%     DOCUMENT FORMATTING     %%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{MTH261 Applied Linear Algebra}
+\rhead{Marvin Lin}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%     TITLE, AUTHOR, ETC.     %%%%%%%%%%%%%
+
+\title{MTH 261 Lecture Notes}
+\author{Marvin Lin}
+\date{Winter 2022}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%     DOCUMENT BODY     %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Introduction to Linear Algebra}
+\section{System of Linear Equations}
+
+Linear Algebra is the area of math concerning liner equations/functions that are represented in vector space and through matrices. If Calculus is the foundational language of mathematics, then Linear Algebra is the foundational language of STEM.
+
+\begin{remark}
+Keep in mind that while Linear Algebra utilizes matrices, it is just a tool to solve problems with. The study is \textbf{NOT} of matrices.
+\end{remark}
+
+\begin{definition}[Linear Equation]
+An equation where $a_1x_1+a_2x_2+\dots+a_nx_n=b$, where $a_1,a_2,a_n, b \in$ as constants of $\mathbb{C}$ and in $\mathbb{R}$
+\end{definition}
+
+\begin{definition}[Linear System]
+A collection of linear equations with the same variable
+\end{definition}
+
+\begin{definition}[Solution \& Solution Set]
+A solution satisfies all equations in a system simultaneously, while a solution set is all possible solutions
+\end{definition}
+
+\begin{definition}[Equivalent Solutions]
+Two systems with the same identical solution set
+\end{definition}
+
+\begin{definition}[Types of Solutions]
+There are two major classification with solution, which are broken into three major solutions:
+\begin{itemize}
+	\item Inconsistent (no solutions)
+	\item Consistent (at least one solution)
+	\begin{itemize}
+		\item Unique Solution
+		\item Infinite Solutions
+	\end{itemize}
+\end{itemize}
+Since the systems we are exploring and purely linear, there will not be two, three, or more solutions.
+\end{definition}
+\begin{figure}[h]
+
+\begin{center}
+  \includegraphics[width=10cm]{figures/solutions}
+  \caption{Types of solutions in a linear system}
+  \label{fig:graph1}
+\end{center}
+\end{figure}
+
+\begin{remark}
+This is true for all linear systems in all space
+\end{remark}
+
+\begin{definition}[Matrix]
+A rectangular array of numbers, often used to compress systems. Let's say the following system of equations is given:
+\begin{alignat*}{4}
+ x & {}-{} & 7y & {} {} &    {}+{} & 6t & {}={} &  5 \\
+   & {} {} &    & {} {} &  z {}-{} & 2t & {}={} & -3 \\
+-x & {}+{} & 7y & {}-{} & 4z {}+{} & 2t & {}={} &  7
+\end{alignat*}
+It can be reduced into the following matrix:
+\begin{equation*}
+\begin{bmatrix}
+1 & -7 & 0 & 6 \\ 
+0 & 0 & 1 & -2 \\ 
+-1 & 7 & -4 & 2
+\end{bmatrix}
+\end{equation*}
+\end{definition}
+
+\begin{definition}[Augmented Matrix]
+A standard matrix which also includes the $\mathbf{b}$ coefficient in the matrix. The following is the augmented matrix of the system of equations from Definition 1.6:
+\begin{equation*}
+\begin{bmatrix}
+1 & -7 & 0 & 6 \\ 
+0 & 0 & 1 & -2 \\ 
+-1 & 7 & -4 & 2
+\end{bmatrix}
+\;OR\;
+\begin{bmatrix}
+1 & -7 & 0 &\bigm| & 6 \\ 
+0 & 0 & 1 &\bigm| & -2 \\ 
+-1 & 7 & -4 &\bigm| & 2
+\end{bmatrix}
+\end{equation*}
+\end{definition}
+
+\section{Row Reduction and Echelon Forms}
+
+Every ERO can be undone
+
+\section{Vector Equations}
+
+\section{The Matrix Equation $A\mathbf{x}=\mathbf{b}$}
+
+\section{Solution Sets of Linear Systems}
+
+\section{Linear Independence}
+
+\section{Introduction to Linear Transformations}
+
+\begin{definition}
+A transformation $T$ is called linear (linear transformation) if for all $\mathbf{u}$, $\mathbf{v}$ in the domain of $T$ and c $\in \mathbb{R}$,
+\begin{itemize}
+	\item $T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u} + T(\mathbf{v})$
+	\item $T(c\mathbf{u}) = cT(\mathbf{u}$
+\end{itemize}
+Therefore, we can determine that every matrix transformation ($T(\mathbf{x} = A\mathbf{x})$ is a linear transformation
+\end{definition}
+To show that a transformation $T:\mathbb{R}^n \rightarrow \mathbb{R}^m$ is linear:
+\begin{enumerate}
+	\item Introduce $\mathbf{u}, \mathbf{v}\in\mathbb{R}^n and c\in\mathbb{R}.$ These must be arbitrary
+	\item Show that $T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u} + T(\mathbf{v}$
+	\item Show that $T(c\mathbf{u}) = cT(\mathbf{u}$
+\end{enumerate}
+Turns out, we could show that IF WE ALREADY KNOW that $T$ is linear, then:
+\begin{itemize}
+	\item $T(\mathbf{0}) = \mathbf{0}$ and
+	\item $T(c\mathbf{u}+d\mathbf{v}) = cT(\mathbf{u}) + dT(\mathbf{v}$
+\end{itemize}
+To show that $T$ is NOT linear, either:
+\begin{itemize}
+	\item Show $T(\mathbf{0}\neq\mathbf{0})$, or
+	\item $T(\mathbf{u} + \mathbf{v}) \neq T(\mathbf{u}) + T(\mathbf{v})$ for specific vectors u \& v, or
+\end{itemize}
+
+\section{The Matrix of a Linear Transformation}
+
+\begin{example}
+Let $T:\mathbb{R}^2\rightarrow\mathbb{R}^2$ that first dilates vectors by a size of 2 then reflects across the line $x_2=-x_1$. Assuming this transformation is linear, find the standard matrix for $T$\\
+\\
+\textbf{Solution}
+\begin{enumerate}
+	\item Dilates (expands) by 2 $\rightarrow$ Doubles in size.
+	\item Reflects across $x_1=-X_1 (y=-x)$.
+\end{enumerate}
+\end{example}
+
+\chapter{Matrix Algebra}
+\section{Matrix Operations}
+There are several ways of representing a matrix:\\
+\begin{center}
+$\begin{bmatrix}
+\mathbf{a}_1 & \mathbf{a}_2 & \dotsb & \mathbf{a}_n \\ 
+\end{bmatrix}
+=
+\begin{bmatrix}
+\mathbf{a}_ij
+\end{bmatrix}
+=
+$
+\end{center}
+\begin{definition}
+The \underline{diagonal entries} of the $m \times n$ matrix i
+\end{definition}
+
+\begin{definition}
+The main diagonal is the collection diagonal entries starting from the top left. \textbf{NOTE:} This may not include the bottom right due to the size of the matrix
+\end{definition}
+
+\begin{definition}
+Diagonal matrix has the form:
+\begin{equation*}
+	\begin{bmatrix}
+	\square & 0 & 0 & 0 \\ 
+	0 & \square & 0 & 0 \\ 
+	0 & 0 & \square & 0
+	\end{bmatrix}
+\end{equation*}
+\end{definition}
+
+\begin{definition}
+The zero matrix is any matrix who's entries are all zero.
+\end{definition}
+
+Basic operations are the same between matrices and vectors (addition, subtraction, multiplication, and equality). Keep in mind, matrices must be the same size for addition/subtraction operations.
+
+\begin{theorem}[Properties of Matrix Arithmitic]
+Let A, B, C, be matrices of the same size, $r,s,\in \mathbb{R}$.
+\begin{enumerate}
+	\item $A+B = B+A$
+	\item $(A + B) + C = A + (B + C)$
+	\item $A + O = A$
+	\item $r(A +B) = rA +rB$
+	\item $(r +s)A = rA +sA$
+	\item $r(sA) = (rs)A$
+\end{enumerate}
+\textbf{NOTE:} $O$ is used a 0 in mathematics.
+\end{theorem}
+
+\subsection*{Matrix Multiplication}
+When $B$ multiplies a vector $\mathbf{x}$ it starts from $\mathbf{x}\mapsto B\mathbf{x}$
+
+\begin{definition}
+If $A$ is $m \times n$ and $B$ is $n \times p$, then the product $AB$ is the $m \times p$ matrix.
+\begin{center}
+$AB = [A\mathbf{b}_1, A\mathbf{b}_2 \dots A\mathbf{b}_p]$
+\end{center}
+\end{definition}
+
+\begin{remark}
+The idea of non-communicative multiplication is uncommon, however does occur on occasion.
+\end{remark}
+
+\begin{theorem}
+Let $A, B, C$ be matrices so that these are defined, $r \in \mathbb{R}$
+\begin{enumerate}
+	\item $A(BC) = (AB)C$
+	\item $A(B + C) = AB + AC$
+	\item $(B + C)A = BA + CA$
+	\item $r(AB) = (rA)B = A(rB)$
+	\item If $A$ is $m \times n$, then $I_mA = A = AI_n$
+\end{enumerate}
+\end{theorem}
+\noindent A few common pitfalls. In general:
+\begin{itemize}
+	\item $AB \neq BA$
+	\item Cancellation does not hold: $AB = AC \nRightarrow B = C$
+	\item The Zero Product Principle does not hold: $AB = O \nRightarrow A = O$ or $B = O$
+\end{itemize}
+\begin{theorem}[Transpose Properties]
+Let $A$, $B$, be matrices so that these are defined, $r \in \mathbb(R)$.
+\begin{enumerate}
+	\item $(A^T)^T = A$
+	\item $(A + B)^T = A^T + B^T$
+	\item $(rA)^T = rA^T$
+	\item $(AB)^T = B^TA^T$
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+This idea of transposition will come up frequently in Linear Algebra.
+\end{remark}
+
+\section{The Inverse of a Matrix}
+\begin{definition}[Multiplicative Inverse]
+If $c \in \mathbb{R}$ with $c \neq O$,then:
+\begin{center}
+$c \cdot c^{-1} = 1$ and $c^{-1} \cdot c = 1$
+\end{center}
+In other words:
+\begin{center}
+	$A \cdot A^{-1} = I$ and $A^{-1} \cdot A = I$
+\end{center}
+\end{definition}
+
+\begin{definition}
+An $n\times n$ matrix $A$ is \underline{invertible} if there is another $n\times n$ matrix $C$ such that $CA=I$ and $AC=I$. We call $C$ the inverse of A and write $C=A^{-1}$.
+\end{definition}
+
+\begin{proposition}
+The inverse of an invertible matrix is unique.
+\end{proposition}
+
+\begin{definition}
+An $n\times n$ matrix that is not invertible is called singular.
+\begin{center}
+	invertible = nonsingular\\
+	singular = noninvertible
+\end{center}
+\end{definition}
+
+\begin{theorem}
+Let $A = \begin{bmatrix}
+a & b \\
+c & d \\
+\end{bmatrix}$.
+If $ad-bc \neq O$, then $A$ is invertible, and $A^{-1} = \frac{1}{ad=bc}\begin{bmatrix}
+	d & -b \\
+	-c & a \\
+\end{bmatrix}$. If $ad - bc = O$, $A$ is singular.
+\end{theorem}
+
+\begin{definition}
+If $A = \begin{bmatrix}
+	a & b \\
+	c & d \\
+	\end{bmatrix}$, the \underline{determinant} of A, written $detA$ or $|A|$, is the number $ad - bc$.
+\end{definition}
+
+\begin{example}
+Let $A = \begin{bmatrix} 2 & 6 \\ -1 & 3 \end{bmatrix}$. Find det$A$ \& $A^{-1}$.\\
+\smallskip\textbf{Solution:}
+det$A = (2)(3) - (6)(-1) = 12$\\
+$A^{-1} = \frac{1}{det A}\begin{bmatrix} d & -b \\ -c & a \end{bmatrix}\\
+= \frac{1}{12} \begin{bmatrix} 3 & -6 \\ 1 & 2 \end{bmatrix}\\
+= $
+\end{example}
+
+\begin{theorem}
+If $A$ is nonsingular, then for each $\mathbf{b}\in\mathbb{R}^n$, $A\mathbf{x}=\mathbf{b}$ is consistent with the unique solution $\mathbf{x}=A^{-1}\mathbf{b}$.\\
+$A\mathbf{x}=\mathbf{b}$\\
+Since $A$ is singular, $A^{-1}$ exists, so:\\
+$A^{-1}A\mathbf{x}=A^{-1}\mathbf{b}$\\
+$(A^{-1}A)\mathbf{x}=A^{-1}\mathbf{b}$\\
+$I\mathbf{x}=A^{-1}\mathbf{b}$\\
+$\mathbf{x}=A^{-1}\mathbf{b}$\\
+\end{theorem}
+
+\begin{example}
+Let $A, B, C, D$ be invertible $n\times m$ matrices. Solve for $C$ if \\$A^{-1}B^{-1}ADCD^{-1}B=D$
+\begin{center}
+	$(A^{-1}A)B^{-1}ADCD^{-1}B=AD$\\
+	$B^{-1}ADCD^{-1}B=AD$\\
+	$BB^{-1}ADCD^{-1}B=BAD$\\
+	$ADCD^{-1}B=BAD$\\
+	$A^{-1}ADCD^{-1}B=A^{-1}BAD$\\
+	$DCD^{-1}B=A^{-1}BAD$\\
+	$D^{-1}DCD^{-1}B=D^{-1}A^{-1}BAD$\\
+	$CD^{-1}B=D^{-1}A^{-1}BAD$\\
+	$CD^{-1}BB^{-1}=D^{-1}A^{-1}BADB^{-1}$\\
+	$CD^{-1}=D^{-1}A^{-1}BADB^{-1}$\\
+	$CD^{-1}D=D^{-1}A^{-1}BADB^{-1}D$\\
+	$C=D^{-1}A^{-1}BADB^{-1}D$\\	
+\end{center}
+\end{example}
+
+This tells us that the order in which you multiply makes a difference. Do you multiply on the left or the right?
+
+\begin{theorem}[Properties of the Inverse]
+If $A, B$ are $n\times n$ invertible matrices, then:
+\begin{enumerate}
+	\item $A^{-1}$ is invertible, and $(A^{-1})^{-1}=A$
+	\item $AB$ is invertible, and $(AB)^{-1}=A^{-1}B^{-1}$
+	\item $A^{T}$ is invertible, and $(A^{T})^{-1}=(A^{-1})^T$
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+Building on number 2 of the previous theorem, the product of $n\times n$ invertible matrices is invertible, and the inverse is the product of the inverses in reverse order.\\
+\bigskip
+eg. $(E_5E_4E_3E_2E_1)^{-1}=E_5^{-1}E_4^{-1}E_3^{-1}E_2^{-1}E_1^{-1}$
+\end{theorem}
+
+This is very similar to the socks and show rule: you put on your socks, then put on your shoes. To take them off, you take off your shoe then take off your socks.
+
+\begin{definition}
+An \underline{elemntary matrix} is a matrix obtained by performing one Elementary Row Operation on an identity matrix.
+\end{definition}
+
+\begin{example}
+$E_1=
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & -2 & 1
+\end{bmatrix}$,
+Compute $E_1
+\begin{bmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i
+\end{bmatrix}$\\\vspace{2mm}
+
+$=
+\begin{bmatrix}
+	1 & 0 & 0 \\
+	0 & 1 & 0 \\
+	0 & -2 & 1
+\end{bmatrix}
+\begin{bmatrix}
+	a & b & c \\
+	d & e & f \\
+	g & h & i
+\end{bmatrix}$\\\vspace{2mm}
+
+$=$\begin{footnotesize}
+$\begin{bmatrix}
+	a\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} +d\begin{bmatrix} 0 \\ 1 \\ -2 \end{bmatrix} + g\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} & b\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} + e\begin{bmatrix} 0 \\ 1 \\ -2 \end{bmatrix} + h\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} & c\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} + f\begin{bmatrix} 0 \\ 1 \\ -2 \end{bmatrix} + i\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+\end{bmatrix}$
+\end{footnotesize}\\\vspace{2mm}
+
+$=\begin{bmatrix}
+	a & b & c \\
+	d & e & f \\
+	-2d+g & -2e+h & -2f+i
+\end{bmatrix}$
+
+\begin{center}
+$E_1A$ replaces $R_3$ with $-2R_2+R_3$	
+\end{center}
+\end{example}
+
+Elementary matrices are simply a method of completing elementary row operations through matrices. They are very predictable.
+
+\begin{example}
+Find $E_2A$ where\\
+$E_2=
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & -3 & 0 \\
+0 & 0 & 1
+\end{bmatrix}$ \&
+$A=
+\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix}$\vspace{2mm}
+
+\begin{center}
+	$I\xrightarrow{-3R_2} E_2$\\
+	$A\xrightarrow{-3R_2} E_2A$\\\vspace{2mm}
+\end{center}
+$E_2A=\begin{bmatrix}
+1 & 2 & 3 \\
+-12 & -15 & -18 \\
+7 & 8 & 9 
+\end{bmatrix}$
+\end{example}
+
+Elementary matrices can tell you what to do without making any calculations, similar to the idea of how the vertex form of quadratics tell you where the vertex is.
+
+\begin{proposition}
+If an ERO is performed on an $m\times n$ matrix $A$, the resulting matrix can be written $EA$, where $E$ is the $m\times m$ elementary matrix found by preforming the same ERO on $I_m$.
+\end{proposition}
+
+\begin{proposition}
+If $E$ is elementary, then $E$ is invertible. Idea for the following theorem:\\
+Suppose $A$ is $n\times n$. We want to invert $A$. Therefore, row reduce $A \rightarrow I$.\\
+$E_p$\dots $E_4E_3E_2E_1A = I$ $\leftarrow$ Identity Matrix\\
+Where $E_p$ are elementary matrices\\
+\begin{center}
+$(E_p$\dots $E_4E_3E_2E_1A) = I$
+\end{center}
+Thus, $A^{-1}=E_p$\dots $E_4E_3E_2E_1$
+\end{proposition}
+
+\begin{theorem}
+An $n\times n$ matrix $A$ is invertible iff $A$ is row equivalent to $A$. In this case, any sequence of EROs that reduced $A\rightarrow I$ would also transform $I\rightarrow A^{-1}$
+\end{theorem}
+
+\subsection*{Algorithm for Finding $A^{-1}$}
+Start by augmenting [$A$ $I$]. To find $A^{-1}$ if $A$ is invertible, RREF[$A$ $I$] = [$I$ $A^{-1}$]\\
+
+There are other algorithms that are typically computationally longer. The adjoint method (one of these algorithms) is far more work.
+
+\begin{example}
+Determine if $A=
+\begin{bmatrix}
+	1 & 1 & 1 \\
+	2 & 1 & 2 \\
+	1 & -2 & 3
+\end{bmatrix}$
+is invertible or singular. If $A$ is invertible, find $A^{-1}$.\\\vspace{2mm}
+$\sim\begin{bmatrix}
+	1 & 1 & 1 & 1 & 0 & 0 \\
+	2 & 1 & 2 & 0 & 1 & 0 \\
+	1 & -2 & 3 & 0 & 0 & 1 
+\end{bmatrix}$\\\vspace{2mm}
+$\sim\begin{bmatrix}
+	1 & 1 & 1 & 1 & 0 & 0 \\
+	2 & 1 & 2 & 0 & 1 & 0 \\
+	0 & -3 & 2 & -1 & 0 & 1 
+\end{bmatrix}$\\\vspace{2mm}
+$\sim\begin{bmatrix}
+	1 & 1 & 1 & 1 & 0 & 0 \\
+	0 & -1 & 0 & -2 & 1 & 0 \\
+	0 & -3 & 2 & -1 & 0 & 1 
+\end{bmatrix}$\\\vspace{2mm}
+$\sim\begin{bmatrix}
+	1 & 1 & 1 & 1 & 0 & 0 \\
+	0 & 1 & 0 & 2 & 1 & 0 \\
+	0 & -3 & 2 & -1 & 0 & 1 
+\end{bmatrix}$\\\vspace{2mm}
+$\sim\begin{bmatrix}
+	1 & 1 & 1 & 1 & 0 & 0 \\
+	0 & 1 & 0 & 2 & 1 & 0 \\
+	0 & 0 & 2 & 5 & -3 & 1 
+\end{bmatrix}$\\\vspace{2mm}
+$\sim\begin{bmatrix}
+	1 & 1 & 1 & 1 & 0 & 0 \\
+	0 & 1 & 0 & 2 & 1 & 0 \\
+	0 & 0 & 2 & 5/2 & -3/2 & 1/2 
+\end{bmatrix}$\\\vspace{2mm}
+$\sim\begin{bmatrix}
+	1 & 1 & 0 & -3/2 & 3/2 & -1/2 \\
+	0 & 1 & 0 & 2 & 1 & 0 \\
+	0 & 0 & 2 & 5/2 & -3/2 & 1/2 
+\end{bmatrix}$\\\vspace{2mm}
+$\sim\begin{bmatrix}
+	1 & 0 & 0 & -7/2 & 5/2 & -1/2 \\
+	0 & 1 & 0 & 2 & 1 & 0 \\
+	0 & 0 & 2 & 5/2 & -3/2 & 1/2 
+\end{bmatrix}$\\\vspace{2mm}
+Therefore, $A^{-1}=\begin{bmatrix}
+	1 & 0 & 0 & -7/2 & 5/2 & -1/2 \\
+	0 & 1 & 0 & 2 & 1 & 0 \\
+	0 & 0 & 2 & 5/2 & -3/2 & 1/2 
+\end{bmatrix}$
+\end{example}
+
+Another note: If you cannot row reduce to RREF, then you know that it is not invertible.
+
+\section{Characterizations of Invertible Matrices}
+
+\begin{theorem}[The (small) Invertible Matrix Theorem]
+Suppose $A$ is $n\times n$. The following are equivalent (TFAE):
+\begin{enumerate}
+	\item $A$ is invertible
+	\item $A$ is row equivalent to $I$.
+	\item $A$ has $n$ pivot positions.
+	\item $A\mathbf{x}=\mathbf{O}$ has only the trivial solution
+	\item The columns of $A$ are linearly independent
+	\item The linear transformation $\mathbf{x}\mapsto A\mathbf{x}$ is $1-1$.
+	\item $A\mathbf{x}=\mathbf{b}$ is consistent with the unique solution $\mathbf{x}=A^{-1}\mathbf{b}$.
+	\item The columns of $A$ span $\mathbb{R}^n$.
+	\item The linear transformation $\mathbf{x}\mapsto A\mathbf{x}$ is onto $\mathbb{R}^n$
+	\item There exists an $n\times n$ matrix $C$ such that $CA=I$
+	\item There exists an $n\times n$ matrix $D$ suc that $AD=I$
+	\item $A^T$ is invertible
+\end{enumerate}
+\end{theorem}
+
+There will be additional statements in the future to supplement these initial equivalencies. This theorem above will allow us to \textbf{\underline{change our goal}} to something that is equivalent, which will make solving the problem easier.
+
+\begin{definition}
+A linear transformation $T:\mathbb{R}^n\rightarrow \mathbb{R}^n$ is invertible if there exists a function $S:\mathbb{R}^n\rightarrow \mathbb{R}^n$ such that\\
+\begin{center}
+	$S(T(\mathbf{x}))$ for all $\mathbf{x\in \mathbb{R}^2}$, and\\
+	$T(S(\mathbf{x}))$ for all $\mathbf{x\in \mathbb{R}^2}$
+\end{center}
+\end{definition}
+
+\begin{theorem}
+Let $T:\mathbb{R}^n\rightarrow \mathbb{R}^n$ be linear with standard matrix $A$. Then $T$ is invertible iff $A$ is invertible. In this case, the linear transformation $S$ given by $S(\mathbf{x})=A^{-1}\mathbf{x}$ is the unique function satisfying the invertible definition for $T$, and $S=T^{-1}$.
+\end{theorem}
+
+\begin{example}
+Suppose $T:\mathbb{R}^7\rightarrow \mathbb{R}^6$ is linear and $1-1$. Show that T is onto (the range = codomain).\vspace{2mm}
+\begin{center}
+We know $T$ is linear, so it has a standard matrix $A$, and it is a $7\times 7$ matrix. Since it is square, the IMT can be used.\\\vspace{3mm}
+Since $T$ defined by $T(\mathbf{x})=A\mathbf{x}$ is $1-1$, we can use the IMT.\\\vspace{3mm}
+By the IMT, $T$ is onto $\mathbb{R}^7$
+\end{center}
+\end{example}
+
+\chapter{Determinants}
+\section{Introduction to Determinants}
+
+\begin{definition}
+For the \emph{uninteresting} $1\times 1$ case, we define $det A = det [a_11] = a_11$
+\end{definition}
+\begin{remark}
+While this is not used in a practical context, its used to build on this with a \underline{recursive definition}.
+\end{remark}
+\begin{definition}
+If $A=\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}$, we defined $det A = ad - bc$.
+\end{definition}
+
+Consider $A=[a_ij]$ is $3\times 3$ with $a_11/neq O$. Then,
+\begin{center}
+	$REF\begin{bmatrix}
+	a_11 & a_12 & a_13 \\
+	a_21 & a_22 & a_23 \\
+	a_31 & a_32 & a_33
+	\end{bmatrix} =
+	\begin{bmatrix}
+	a_11 & a_12 & a_13 \\
+	0 & a_11a_22-a_12a_21 & a_11a_23-a_13a_21 \\
+	0 & 0 & a_11\Delta 
+	\end{bmatrix}$
+\end{center}
+Where $\Delta = a_11a_22a_33+a_12a_23a_31+a_13a_21a_32-a_11a_23a_32-a_12a_21a_33-a_13a_22a_31$
+\begin{remark}
+This is A METHOD, but not a good method. Do not need to memorize this, it is just a step towards a larger definition.
+\end{remark}
+
+\begin{definition}
+For $A=a_ij]$ as a $3\times 3$ matrix, we define $det A=\Delta$
+\end{definition}
+
+Determinants help you determine invertability, as if the determinant is 0, the we know it is not invertible. \underline{A determinant determines if $A$ is invertible or singular}
+
+\begin{definition}
+The $ij$ minor matrix $A_ij$, where $A_ij$ is the matrix obtained from $A$ by deleting its $i^th$ row nd $j^th$ column.
+\end{definition}
+
+\begin{example}
+Let $A=\begin{bmatrix}
+1 & 0 & -7 & 6 & 1 \\
+2 & 3 & 5 & -1 & 1 \\
+0 & 1 & 1 & 2 & 1 \\
+\pi & e & 6 & 4 & 1
+\end{bmatrix}$. Find $A_{32}$.\\
+$A_{32}=\begin{bmatrix}
+1 & -7 & 6 & 1 \\
+2 & 5 & -1 & 1 \\
+\pi & 6 & 4 & 1
+\end{bmatrix}$
+\end{example}
+
+\section{Properties of Determinants}
+
+\end{document}
