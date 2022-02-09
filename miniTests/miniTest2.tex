@@ -1,0 +1,170 @@
+\documentclass{report}
+
+\usepackage{marvin} %found on https://github.com/marvinlinn/latexSetup. Add files to your local MiKTeX environment in (MiKTex Console > Settings > Directories > Add) and add the latexSetup folder.
+
+\title{Winter 2022 MTH 261 Mini Test 2}
+\author{Marvin Lin}
+\date{Feburary 2022}
+
+\begin{document}
+
+\maketitle
+
+\section*{Question 1}
+\begin{example}
+    Let $\mathbf{a}_1 = \begin{bmatrix} 1 \\ 4 \\ -7 \end{bmatrix}$, $\mathbf{a}_2 \begin{bmatrix} -2 \\ 5 \\ 3 \end{bmatrix}$, $\mathbf{a}_3 = \begin{bmatrix} -7 \\ -2 \\ \alpha \end{bmatrix}$.
+    
+    Determine what value(s) of $\alpha$ will make $\{\mathbf{a}_1, \mathbf{a}_2, \mathbf{a}_3\}$ a linearly dependent set. Show all work that supports your conclusion, including all row-reduction steps.
+\end{example}
+$\begin{bmatrix}
+    1 & -2 & -7 & 0 \\
+    2 & 5 & -2 & 0 \\
+    -7 & 3 & \alpha & 0 \\
+\end{bmatrix}$\\
+$\sim \begin{bmatrix}
+    1 & -2 & -7 & 0 \\
+    0 & 9 & 12 & 0 \\
+    -7 & 3 & \alpha & 0 \\
+\end{bmatrix}$\\
+$\sim \begin{bmatrix}
+    1 & -2 & -7 & 0 \\
+    0 & 9 & 12 & 0 \\
+    0 & -11 & \alpha-49 & 0 \\
+\end{bmatrix}$\\
+$\sim \begin{bmatrix}
+    1 & -2 & -7 & 0 \\
+    0 & 1 & \frac{12}{9} & 0 \\
+    0 & -11 & \alpha-49 & 0 \\
+\end{bmatrix}$\\
+$\sim \begin{bmatrix}
+    1 & -2 & -7 & 0 \\
+    0 & 1 & \frac{12}{9} & 0 \\
+    0 & 0 & \alpha-34\frac{1}{3} & 0 \\
+\end{bmatrix}$\\
+\begin{center}
+For the following set of vectors to be linearly dependent, the $\mathbf{x_3}$ vector must be free. In order for this to occur, then $\alpha - 34\frac{1}{3}$ must be 0.\\\vspace{3mm}
+$0 = \alpha - 34\frac{1}{3}$\\
+$\alpha = 34\frac{1}{3}$\\\vspace{3mm}
+Therefore, when $\alpha = 34\frac{1}{3}$, $\{\mathbf{a}_1, \mathbf{a}_2, \mathbf{a}_3\}$ is a linearly dependent set.
+\end{center}
+\clearpage
+
+\section*{Question 2}
+\begin{example}
+    Find the standard matrix $T$ for the linear transform $T : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ such that $T$ first reflects points through the horizontal $x_1$-axis and then reflects points through the line $x_2 = x_1$.
+\end{example}
+\begin{center}
+Starting with the identity matrix, $I$, we can map each vector with the appropriate transformation. Let's start with the reflection through the horizontal $x_1$ axis.\\\vspace{3mm}
+$\mathbf{e_1}\mapsto \begin{bmatrix} 1 \\ 0 \end{bmatrix} \mapsto \begin{bmatrix} 1 \\ 0 \end{bmatrix}$\\
+$\mathbf{e_2}\mapsto \begin{bmatrix} 0 \\ 1 \end{bmatrix} \mapsto \begin{bmatrix} 0 \\ -1 \end{bmatrix}$\\\vspace{3mm}
+On the next transformation, we reflect through $x_2=x_1$.\\\vspace{3mm}
+$\mathbf{e_1}\mapsto \begin{bmatrix} 1 \\ 0 \end{bmatrix} \mapsto \begin{bmatrix} 0 \\ 1 \end{bmatrix}$\\
+$\mathbf{e_2}\mapsto \begin{bmatrix} 0 \\ -1 \end{bmatrix} \mapsto \begin{bmatrix} -1 \\ 0 \end{bmatrix}$\\\vspace{3mm}
+Therefore, we can determine the standard matrix is $T=\begin{bmatrix} 
+    0 & -1 \\ 
+    1 & 0 
+\end{bmatrix}$.
+\end{center}
+\clearpage
+
+\section*{Question 3}
+\begin{example}
+    An {\it affine transformation} $T : \mathbb{R}^n \rightarrow \mathbb{R}^m$ has the form $T(\mathbf{x}) = A\mathbf{x} + \mathbf{b}$, where $A$ is $m \times n$ and $\mathbf{b} \in \mathbb{R}^m$. Why is $T$ not linear when $\mathbf{b} \ne \mathbf{0}$? Explain in as much detail as possible. Show any computations that support your conclusion.
+\end{example}
+
+Fundamentally, a linear transformation means that vector addition and scalar multiplication is preserved. In the case where the vector $\mathbf{b}\neq 0$, this means that vector addition and scalar multiplication is not preserved\\
+
+Furthermore, by definition, when a linear transformation occurs, then $T(\mathbf{0}) = \mathbf{0}$. Let's evaluate the given form of $T(\mathbf{x})$ to see the outcome:
+\begin{center}
+$T(\mathbf{x}) = A\mathbf{x} + \mathbf{b}$\\
+$T(\mathbf{0}) = A\mathbf{0} + \mathbf{b}$\\
+$T(\mathbf{0}) = \mathbf{b}$
+\end{center}
+
+Given $\mathbf{b} \ne \mathbf{0}$, we can see that $T(\mathbf{0}) = \mathbf{0}$ is not true, and therefore the affine transformation is not linear.
+\clearpage
+
+\section*{Question 4}
+\begin{example}
+    Let $A = \begin{bmatrix} 1 & 1 & -1 \\ 1 & -1 & 1 \\ -1 & 1 & 1 \end{bmatrix}$. Determine if $A$ is invertible or singular. If $A$ is invertible, find $A^{-1}$. If $A$ is singular, state as specifically as possible why this is so.
+\end{example}
+$\begin{bmatrix} 
+    1 & 1 & -1 & 1 & 0 & 0 \\ 
+    1 & -1 & 1 & 0 & 1 & 0 \\ 
+    -1 & 1 & 1 & 0 & 0 & 1 
+\end{bmatrix}$\\\vspace{3mm}
+$\sim \begin{bmatrix} 
+    1 & 1 & -1 & 1 & 0 & 0 \\ 
+    0 & -2 & 2 & -1 & 1 & 0 \\ 
+    -1 & 1 & 1 & 0 & 0 & 1 
+\end{bmatrix}$\\\vspace{3mm}
+$\sim \begin{bmatrix} 
+    1 & 1 & -1 & 1 & 0 & 0 \\ 
+    0 & -2 & 2 & -1 & 1 & 0 \\ 
+    0 & 2 & 0 & 1 & 0 & 1 
+\end{bmatrix}$\\\vspace{3mm}
+$\sim \begin{bmatrix} 
+    1 & 1 & -1 & 1 & 0 & 0 \\ 
+    0 & 0 & 2 & 0 & 1 & 1 \\ 
+    0 & 2 & 0 & 1 & 0 & 1 
+\end{bmatrix}$\\\vspace{3mm}
+$\sim \begin{bmatrix} 
+    1 & 1 & -1 & 1 & 0 & 0 \\
+    0 & 2 & 0 & 1 & 0 & 1 \\ 
+    0 & 0 & 2 & 0 & 1 & 1 
+\end{bmatrix}$\\\vspace{3mm}
+$\sim \begin{bmatrix} 
+    1 & 1 & -1 & 1 & 0 & 0 \\
+    0 & 1 & 0 & \frac{1}{2} & 0 & \frac{1}{2} \\ 
+    0 & 0 & 1 & 0 & \frac{1}{2} & \frac{1}{2} 
+\end{bmatrix}$\\\vspace{3mm}
+$\sim \begin{bmatrix} 
+    1 & 1 & 0 & 1 & \frac{1}{2} & \frac{1}{2} \\
+    0 & 1 & 0 & \frac{1}{2} & 0 & \frac{1}{2} \\ 
+    0 & 0 & 1 & 0 & \frac{1}{2} & \frac{1}{2} 
+\end{bmatrix}$\\\vspace{3mm}
+$\sim \begin{bmatrix} 
+    1 & 0 & 0 & \frac{1}{2} & \frac{1}{2} & 0 \\
+    0 & 1 & 0 & \frac{1}{2} & 0 & \frac{1}{2} \\ 
+    0 & 0 & 1 & 0 & \frac{1}{2} & \frac{1}{2} 
+\end{bmatrix}$
+\begin{center}
+    Since $A$ can be reduced down to RREF, we know that $A$ is invertible.\\\vspace{3mm}
+    Furthermore, $A^{-1} = \begin{bmatrix} 
+        1 & 0 & 0 & \frac{1}{2} & \frac{1}{2} & 0 \\
+        0 & 1 & 0 & \frac{1}{2} & 0 & \frac{1}{2} \\ 
+        0 & 0 & 1 & 0 & \frac{1}{2} & \frac{1}{2} 
+    \end{bmatrix}$
+\end{center}
+\clearpage
+
+\section*{Question 5}
+\begin{example}
+    Let $A = \begin{bmatrix} 1 & 1 & -1 \\ 1 & -1 & 1 \\ -1 & 1 & 1 \end{bmatrix}$ and $B = \begin{bmatrix} 1 & 2 \\ 2 & 3 \\ 4 & -1 \end{bmatrix}$. Determine if $AB$ is defined or not. If it is defined, find the resulting matrix. If it is undefined, state as specifically as possible why this is so.
+\end{example}
+We can tell if $AB$ is defined be analyzing if the size of the matrix matches up.
+\begin{center}
+    $3\times 3$ and $3\times 2$
+\end{center}
+Since the number of columns of $A$ match with the number of rows for $B$, we know that $AB$ is defined.\\
+\begin{center}
+    $A = \begin{bmatrix} 
+        (1)(1)+(1)(2)+(-1)(4) & (1)(2)+(1)(3)+(-1)(-1) \\ 
+        (1)(1)+(-1)(2)+(1)(4) & (1)(2)+(-1)(3)+(1)(-1) \\ 
+        (-1)(1)+(1)(2)+(1)(4) & (-1)(2)+(1)(3)+(1)(-1) 
+    \end{bmatrix}$\\\vspace{3mm}
+    $A = \begin{bmatrix} 
+        1+2-4 & 2+3+1 \\ 
+        1+(-2)+4 & 2+(-3)+(-1) \\ 
+        (-1)+2+4 & (-2)+3+(-1) 
+    \end{bmatrix}$\\\vspace{3mm}
+    $A = \begin{bmatrix} 
+        -1 & 6 \\ 
+        3 & -2 \\ 
+        5 & 0 
+    \end{bmatrix}$\\\vspace{3mm}
+Therefore, $\begin{bmatrix} -1 & 6 \\ 3 & -2 \\ 5 & 0 \end{bmatrix}$ is the resulting matrix.
+\end{center}
+\clearpage
+
+\end{document}
