@@ -31,6 +31,7 @@
 \tableofcontents
 
 \chapter{Introduction to Linear Algebra}
+
 \section{System of Linear Equations}
 
 Linear Algebra is the area of math concerning liner equations/functions that are represented in vector space and through matrices. If Calculus is the foundational language of mathematics, then Linear Algebra is the foundational language of STEM.
@@ -88,19 +89,15 @@ A rectangular array of numbers, often used to compress systems. Let's say the fo
 -x & {}+{} & 7y & {}-{} & 4z {}+{} & 2t & {}={} &  7
 \end{alignat*}
 It can be reduced into the following matrix:
-\begin{equation*}
-\begin{bmatrix}
+$\begin{bmatrix}
 1 & -7 & 0 & 6 \\ 
 0 & 0 & 1 & -2 \\ 
 -1 & 7 & -4 & 2
-\end{bmatrix}
-\end{equation*}
+\end{bmatrix}$
 \end{definition}
-
 \begin{definition}[Augmented Matrix]
 A standard matrix which also includes the $\mathbf{b}$ coefficient in the matrix. The following is the augmented matrix of the system of equations from Definition 1.6:
-\begin{equation*}
-\begin{bmatrix}
+$\begin{bmatrix}
 1 & -7 & 0 & 6 \\ 
 0 & 0 & 1 & -2 \\ 
 -1 & 7 & -4 & 2
@@ -110,22 +107,297 @@ A standard matrix which also includes the $\mathbf{b}$ coefficient in the matrix
 1 & -7 & 0 &\bigm| & 6 \\ 
 0 & 0 & 1 &\bigm| & -2 \\ 
 -1 & 7 & -4 &\bigm| & 2
-\end{bmatrix}
-\end{equation*}
+\end{bmatrix}$
+\end{definition}
+\begin{definition}[Elementary Row Operations]
+Elementary row operations are used to change matrices in a \underline{revertible} manner.
+	\begin{enumerate}
+		\item \textbf{Replacement.} Sum of itself and a multiple of another row.
+		\item \textbf{Interchange.} Swap/Interchange two rows.
+		\item \textbf{Scaling.} Multiply all entries in a row by a nonzero constant.
+	\end{enumerate}
 \end{definition}
 
+These operations can be used with any matrix, and are typically used to create variations of the matrix that is beneficial to finding specific information.
+
+\begin{definition}[Row Equivilance]
+	Matrices are referred to as \underline{row equivilant} if the matrices can be transformed into each other through elementary row operations.
+\end{definition}
+
+\subsection*{Existence and Uniqueness}
+In analyzing a linear system, a few key questions are being asked:
+\begin{enumerate}
+	\item Is the system consistent or inconsistent? (Solution or no solution)
+	\item Is the solution unique (one solution or many)?
+\end{enumerate}
+\begin{remark}
+	Keep in mind, since we are looking into linear systems, there may only be one solution or infinite solutions, none in between.
+\end{remark}
 \section{Row Reduction and Echelon Forms}
 
-Every ERO can be undone
+There are specific forms in which a matrix can be in to provide valuable information about the matrices.
+\begin{definition}[Leading Entry]
+	The leftmost nonzero entry in a nonzero row.
+\end{definition}
+In the case of the matrix below, $x$ is the leading entry:
+\begin{center}
+	$\begin{bmatrix}
+		\underline{x} & 2 & 0 & 5
+	\end{bmatrix}$	
+\end{center}
+\begin{definition}[Echelon Form (REF)]
+	One of the primary forms, refereed to as row echelon form (often just called echelon form) has the following properties:
+	\begin{itemize}
+		\item All nonzero rows are above any rows of zeros
+		\item Each leading entry is in a column to the right of the leading entry above it
+		\item All entries in a column below a leading entry are zeros
+	\end{itemize}
+\end{definition}
+Below is an example of a matrix in Echelon Form (REF):
+\begin{center}
+	$\begin{bmatrix}
+	\underline{4} & 0 & 4 & 3 \\
+	0 & \underline{3} & 6 & 1 \\
+	0 & 0 & \underline{1} & 8 
+	\end{bmatrix}$
+\end{center}
+The underlined numbers indicate the leading entries.
+\begin{definition}[Reduced Echelon Form (RREF)]
+	Similar to REF, the reduced echelon form (RREF) takes the definition of the REF a few steps further
+	\begin{itemize}
+		\item The leading entries are 1
+		\item Te leading entry (1) is the only nonzero entry in its column
+	\end{itemize}
+\end{definition}
+Below is an example of a matrix in Echelon Form (REF):
+\begin{center}
+	$\begin{bmatrix}
+	\underline{1} & 0 & 0 & 3 \\
+	0 & \underline{1} & 0 & 1 \\
+	0 & 0 & \underline{1} & 8 
+	\end{bmatrix}$
+\end{center}
+\begin{theorem}[Uniqueness of RREF]
+	Each matrix is only row equivalent to a single RREF matrix.
+\end{theorem}
+This is ONLY true for RREF. REF can be adjusted with row operations to have multiple matrices.
 
+\subsection*{Pivots}
+\begin{definition}[Pivot Positions and Columns]
+	Leading entries in REF and the leading 1's in RREF are referred to a \underline{pivot position}. Similarly, a column containing a pivot position is referred to as a \underline{pivot column}.
+\end{definition}
+These pivots can be identified in the original matrix, and are not terms exclusively for REF and RREF (unlike leading entries).
+
+\subsection*{Gauss-Jordan Elimination}
+
+\begin{fullindent}{1cm}
+	\textbf{Step 1.} The leftmost non-zero column must be a pivot column, with the first row in the column being the pivot position.
+	\begin{center}
+		$A = \begin{bmatrix}
+			0 & 4 & 4 & 3 \\
+			4 & 4 & 6 & 1 \\
+			2 & 0 & 4 & 8
+		\end{bmatrix}$
+	\end{center}	
+	\textbf{Step 2.} Any nonzero entry in the pivot column can be a pivot. Use the interchange ERO to make it the first column.
+	\begin{center}
+		$\sim \begin{bmatrix}
+			2 & 0 & 4 & 8 \\
+			4 & 4 & 6 & 1 \\
+			0 & 4 & 4 & 3
+		\end{bmatrix}$
+	\end{center}
+	\textbf{Step 3.} Use EROs to make all positions below pivot into zeros.
+	\begin{center}
+		$\sim \begin{bmatrix}
+			2 & 0 & 4 & 8 \\
+			0 & 4 & -2 & -15 \\
+			0 & 4 & 4 & 3
+		\end{bmatrix}$
+	\end{center}
+	\textbf{Step 4.} Ignore the pivot row and repeat for all remaining rows (ad terminum; until completion/termination).
+	\begin{center}
+		$\sim \begin{bmatrix}
+			2 & 0 & 4 & 8 \\
+			0 & 4 & -2 & -15 \\
+			0 & 0 & 6 & 18
+		\end{bmatrix} = REF(A)$
+	\end{center}
+\end{fullindent}
+
+This will create a $A \rightarrow REF(A)$, and is common referred to as \textbf{Gaussian Elimination}. The following 2 steps will create $A \rightarrow RREF(A)$ and is referred to as \textbf{Gauss-Jordan Elimination}
+
+\begin{fullindent}{1cm}
+	\textbf{Step 5.} Make all pivots 1 through the scaling ERO.
+	\begin{center}
+		$\sim \begin{bmatrix}
+			1 & 0 & 2 & 4 \\
+			0 & 1 & -\frac{1}{2} & -3\frac{3}{4} \\
+			0 & 0 & 1 & 3
+		\end{bmatrix}$
+	\end{center}
+	\textbf{Step 6.} Begin with the rightmost pivot and use row operations to work upwards, making all entries above pivot positions to be zeros.
+	\begin{center}
+		$\sim \begin{bmatrix}
+			1 & 0 & 0 & -2 \\
+			0 & 1 & 0 & -2\frac{1}{4} \\
+			0 & 0 & 1 & 3
+		\end{bmatrix} = RREF(A)$
+	\end{center}
+\end{fullindent}
+
+\subsection*{Gauss-Jordan Elimination in Linear Systems}
+This method also helps solves linear systems when reduced down to RREF. Assume column 1 is $x_1$, column 2 is $x_2$, column 3 is $x_3$, and column 4 is $b$.
+\begin{center}
+	$4x_2 + 2x_3 = 3$\\
+	$4x_1 + 4x_2 + 6x_3 = 1$\\
+	$2x_1 + 4x_3 = 8$
+\end{center}
+
+And therefore after applying Gauss-Jordan Elimination is:
+\begin{center}
+	$\begin{cases}
+		x_1 = -2\\
+		x_2 = -2\frac{1}{4}\\
+		x_3 = 3
+	\end{cases}$
+\end{center}
+
+In the case of the following where one row is only zeros,
+\begin{center}
+	$\begin{bmatrix}
+		1 & 0 & 0 & -2 \\
+		0 & 1 & 0 & -2\frac{1}{4} \\
+		0 & 0 & 0 & 0
+	\end{bmatrix} = RREF(A)$
+\end{center}
+we get:
+\begin{center}
+	$\begin{cases}
+		x_1 = -2\\
+		x_2 = -2\frac{1}{4}\\
+		x_3 = x_3 \rightarrow x_3 \text{ is free}
+	\end{cases}$
+\end{center}
+\begin{definition}
+	Variables corresponding with a pivot column is called \textbf{basic variable}, while variables corresponding to a non-pivot column is referred to as a \textbf{free variable}.
+\end{definition}
+There are three possible definitions of the solution set:
+\begin{itemize}
+	\item \textbf{No solution.} We write $\phi$ (phi).
+	\item \textbf{Unique Solution.} We write the single solution in a set (ie. ${(1, 0, -1)}$).
+	\item \textbf{Infinite solutions.} Form a \underline{general solution} by expressing basic variables in terms of the free variable, and notating free variables as free. Also called \underline{parametric solution}, where free variables are the parameters.
+\end{itemize}
+\begin{theorem}
+	The following can be determined by analyzing the augmented matrix:
+	\begin{enumerate}
+		\item \textbf{A linear system is consistent} if and only if the rightmost column if not a pivot column, in addition to no false statements (ie. $0/neq 1$). \underline{A false statement is a clear indicator of an inconsistent system.}
+		\item \textbf{A linear system is consistent and unique} if there are no free variables.
+		\item \textbf{A linear system is consistent and has infinite solutions} if there are free variables.
+	\end{enumerate}
+\end{theorem}
 \section{Vector Equations}
+\begin{definition}
+	Matrix with one column is called column vector, or just a vector.
+\end{definition}
+\begin{definition}[Equality, Sum, and Scalar]
+	A vector is only equal if corresponding entries are equal:
+	\begin{center}
+		$\begin{bmatrix} 3 \\ 2 \end{bmatrix} \neq \begin{bmatrix} 2 \\ 3 \end{bmatrix}$
+	\end{center}
+	Vectors can only be added if they are in the same space (ie. $\mathbb{R}^2 vs \mathbb{R}^3$):
+	\begin{center}
+		$\begin{bmatrix} 3 \\ 2 \end{bmatrix} + \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} = \text{undefined}$
+	\end{center}
+	A vector is scaled by multiplying each entry by the scalar, $c$:
+	\begin{center}
+		$c\mathbf{u} = 4\begin{bmatrix} 3 \\ 2 \end{bmatrix} = \begin{bmatrix} 4(2) \\ 4(3) \end{bmatrix}= \begin{bmatrix} 8 \\ 12 \end{bmatrix}$
+	\end{center}
+\end{definition}
 
+\subsection*{Graphing Vectors in $\mathbb{R}^2$}
+Fundamentally, vectors can be graphed with the definition:
+\begin{center}
+	$\begin{bmatrix} a \\ b \end{bmatrix} = (a, b)$
+\end{center}
+Then, vectors are graphed with a point \underline{and} and arrow staring from the origin.
+\begin{center}
+	INSERT IMAGE HERE
+\end{center}
+$\mathbb{R}^2$ is the set of all points (vectors) on the plane.
+\begin{definition}[Parallelogram Rule for Addition]
+	If $\mathbf{u}$ and $\mathbf{v} \epsilon \mathbb{R}^2$, then $\mathbf{u} + \mathbf{v}$ is the 4th vertex of the parallelogram whose other vertices are $\mathbf{0},\mathbf{u}, \mathbf{v}$.
+\end{definition}
+\begin{center}
+	INSERT IMAGE HERE
+\end{center}
+\subsection*{Vectors in $\mathbb{R}^3$ \& $\mathbb{R}^n$}
+In $\mathbb{R}^3$, nearly all properties are identical to $\mathbb{R}^2$. Equality, addition, and scalar multiplication are identical. $\mathbb{R}^3$ is represented by:
+\begin{center}
+	$\mathbb{R}^3 = \begin{Bmatrix} \begin{bmatrix} a \\ b \\ c \end{bmatrix} \vert a,b,c \epsilon \mathbb{R} \end{Bmatrix}$
+\end{center}
+\subsection*{Vectors in $\mathbb{R}^n$}
+\begin{definition}[$\mathbb{R}^n$]
+	$\mathbb{R}^n$ is defined as the collection of n-tuples (or all lists) of real numbers, usually written as:
+	\begin{center}
+		$\begin{bmatrix}
+			u_1 \\
+			u_2 \\
+			\vdots \\
+			u_n
+		\end{bmatrix}$
+	\end{center}
+	Moreover, the zero vector $\mathbf{0}$ is written as all entries are zero. The same definitions of equality, summation, and scaling apply as $\mathbb{R}^2$
+\end{definition}
+\begin{theorem}[Properties of $\mathbb{R}^n$]
+	Let $\mathbf{u}$, $\mathbf{v}$, $\mathbf{w}$ $\epsilon$ $\mathbb{R}^n$, c \& d $\epsilon$ $\mathbb{R}$:
+	\begin{enumerate}
+		\item $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$  (Commutativity of Addition.)
+		\item $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{v} + (\mathbf{u} + \mathbf{w})$  (Associativity of +.)
+		\item $\mathbf{u} + \mathbf{0} = \mathbf{0} + \mathbf{u} = \mathbf{u}$  ($\mathbf{0}$ is the Additive Identity.)
+		\item $\mathbf{u} - \mathbf{u} = \mathbf{0} + (-1)\mathbf{u} = \mathbf{0})$  ($-\mathbf{u}$ is the Additive Inverse of $\mathbf{u}$.)
+		\item $c(\mathbf{u} + \mathbf{v}) = c\mathbf{v} + c\mathbf{u}$  (Distributive I.)
+		\item $(c+d)\mathbf{u}  = c\mathbf{u} + c\mathbf{u}$  (Distributive II.)
+		\item $c(d\mathbf{u}) = (cd)\mathbf{u}$  (Associative Property of Scalar Multiplication.)
+		\item $1\mathbf{u} = \mathbf{u}$  (1 is the scalar Multiplicative Identity.)
+	\end{enumerate}
+\end{theorem}
+\begin{definition}
+	The linear combination of $\mathbf{v}_1$,$\ldots$ ,$\mathbf{v}_p \epsilon \mathbb{R}^n$ with corresponding weights $c_1$,$\ldots$ ,$c_p \epsilon \mathbb{R}^n$ is the $\mathbb{R}^n$ vector.
+	\begin{center}
+		$c_1\mathbf{v}_1,c_2\mathbf{v}_2, c_3\mathbf{v}_3, \ldots ,c_p\mathbf{v}_p$
+	\end{center}
+\end{definition}
+\begin{center}
+	INCLUDE EXAMPLE
+\end{center}
+We can see that a vector equation $x_1\mathbf{v}_1,x_2\mathbf{v}_2, \ldots ,x_p\mathbf{v}_p = \mathbf{b}$ has the same solution set as the linear system whose augmented matrix is:
+\begin{center}
+	 $A = \begin{bmatrix} \mathbf{v}_1 & \mathbf{v}_2 & \ldots & \mathbf{v}_p & \mathbf{b} \end{bmatrix}$
+\end{center}
+So $\mathbf{b}$ can be generated by a linear combination of $\mathbf{v}_1$, $\ldots$, $\mathbf{v}_p$ iff there exists a solution to the linear system whose augmented matrix is $A$.
+\begin{definition}
+	If $\mathbf{v}_1$, $\ldots$, $\mathbf{v}_p \epsilon \mathbb{R}^3$, we define the span of $\mathbf{v}_1$, $\ldots$, $\mathbf{v}_p$ to be the set of all linear combinations of $\mathbf{v}_1$, $\ldots$, $\mathbf{v}_p$ denoted:
+	\begin{center}
+		$span=\{ \mathbf{v}_1$, $\ldots$, $\mathbf{v}_p\}$
+	\end{center}
+\end{definition}
+\begin{center}
+	INCLUDE EXAMPLE
+\end{center}
+\begin{theorem}
+	If $\mathbf{v}_1$, $\ldots$, $\mathbf{v}_p \epsilon \mathbb{R}^3$, then $\mathbf{0}$ $\epsilon$ $span\{ \mathbf{v}_1, \ldots, \mathbf{v}_p\}$
+\end{theorem}
+\subsection*{Visualizing $span$}
+\begin{center}
+	INCLUDE VISUALS
+\end{center}
 \section{The Matrix Equation $A\mathbf{x}=\mathbf{b}$}
-
+\begin{definition}
+	
+\end{definition}
 \section{Solution Sets of Linear Systems}
-
 \section{Linear Independence}
-
 \section{Introduction to Linear Transformations}
 
 \begin{definition}
@@ -152,7 +424,6 @@ To show that $T$ is NOT linear, either:
 	\item Show $T(\mathbf{0}\neq\mathbf{0})$, or
 	\item $T(\mathbf{u} + \mathbf{v}) \neq T(\mathbf{u}) + T(\mathbf{v})$ for specific vectors u \& v, or
 \end{itemize}
-
 \section{The Matrix of a Linear Transformation}
 
 \begin{example}
@@ -166,6 +437,7 @@ Let $T:\mathbb{R}^2\rightarrow\mathbb{R}^2$ that first dilates vectors by a size
 \end{example}
 
 \chapter{Matrix Algebra}
+
 \section{Matrix Operations}
 There are several ways of representing a matrix:\\
 \begin{center}
@@ -260,7 +532,6 @@ Let $A$, $B$, be matrices so that these are defined, $r \in \mathbb(R)$.
 \begin{remark}
 This idea of transposition will come up frequently in Linear Algebra.
 \end{remark}
-
 \section{The Inverse of a Matrix}
 \begin{definition}[Multiplicative Inverse]
 If $c \in \mathbb{R}$ with $c \neq O$,then:
@@ -510,17 +781,16 @@ $\sim\begin{bmatrix}
 $\sim\begin{bmatrix}
 	1 & 0 & 0 & -7/2 & 5/2 & -1/2 \\
 	0 & 1 & 0 & 2 & 1 & 0 \\
-	0 & 0 & 2 & 5/2 & -3/2 & 1/2 
+	0 & 0 & 1 & 5/2 & -3/2 & 1/2 
 \end{bmatrix}$\\\vspace{2mm}
 Therefore, $A^{-1}=\begin{bmatrix}
 	1 & 0 & 0 & -7/2 & 5/2 & -1/2 \\
 	0 & 1 & 0 & 2 & 1 & 0 \\
-	0 & 0 & 2 & 5/2 & -3/2 & 1/2 
+	0 & 0 & 1 & 5/2 & -3/2 & 1/2 
 \end{bmatrix}$
 \end{example}
 
 Another note: If you cannot row reduce to RREF, then you know that it is not invertible.
-
 \section{Characterizations of Invertible Matrices}
 
 \begin{theorem}[The (small) Invertible Matrix Theorem]
@@ -565,6 +835,7 @@ By the IMT, $T$ is onto $\mathbb{R}^7$
 \end{example}
 
 \chapter{Determinants}
+
 \section{Introduction to Determinants}
 
 \begin{definition}
@@ -621,7 +892,80 @@ $A_{32}=\begin{bmatrix}
 \pi & 6 & 4 & 1
 \end{bmatrix}$
 \end{example}
-
 \section{Properties of Determinants}
+
+\begin{theorem}[Row Operations \& Determinants]
+Let $A$ be a square matrix. Let $B$ be obtained from $A$ by a single ERO. Then:
+\begin{center}
+	\begin{tabular}{ c|c|c } 
+	 ERO & Effect on $det$ & $det B$ \\ 
+	 \hline
+	 Scale by k & Scale by k & $det A=kdetA$ \\ 
+	 Interchange & Negates & $det A=kdetA$ \\ 
+	 Replacement & Invariant & $det A=detA$ \\ 
+	\end{tabular}
+	\end{center}
+\end{theorem}
+\begin{remark}
+	Scaling in determinants is like factoring!
+\end{remark}
+\begin{example} Find
+	$\begin{vmatrix}
+		2 & -8 & 6 & 8 \\
+		3 & -9 & 5 & 10 \\
+		-3 & 0 & 1 & -2 \\
+		1 & -4 & 0 & 6
+	\end{vmatrix}$\\\vspace{3mm}
+	$=-\begin{vmatrix}
+		1 & -4 & 0 & 6 \\
+		3 & -9 & 5 & 10 \\
+		-3 & 0 & 1 & -2 \\
+		2 & -8 & 6 & 8
+	\end{vmatrix}$\\\vspace{3mm}
+	$=-\begin{vmatrix}
+		1 & -4 & 0 & 6 \\
+		3 & -9 & 5 & 10 \\
+		-3 & 0 & 1 & -2 \\
+		2 & -8 & 6 & 8
+	\end{vmatrix}$\\
+	\begin{center}
+		Row reduce rows bellow 1 to be 0 in under the first pivot.
+	\end{center}
+	$=-\begin{vmatrix}
+		1 & -4 & 0 & 6 \\
+		0 & 3 & 5 & -8 \\
+		0 & -12 & 1 & 16 \\
+		0 & 0 & 6 & -4
+	\end{vmatrix}$\\
+	\begin{center}
+		Reduce row 3 to continue making triangle matrix.
+	\end{center}
+	$=-\begin{vmatrix}
+		1 & -4 & 0 & 6 \\
+		0 & 3 & 5 & -8 \\
+		0 & 0 & 21 & -16 \\
+		0 & 0 & 6 & -4
+	\end{vmatrix}$\\
+	\begin{center}
+		Take $\frac{7}{2}$ of row 3.
+	\end{center}
+	$=-\frac{7}{2}\begin{vmatrix}
+		1 & -4 & 0 & 6 \\
+		0 & 3 & 5 & -8 \\
+		0 & 0 & 6 & \frac{-32}{7} \\
+		0 & 0 & 6 & -4
+	\end{vmatrix}$\\
+	\begin{center}
+		Eliminate position 3 in row 4 to complete triangle matrix.
+	\end{center}
+	$=-\frac{7}{2}\begin{vmatrix}
+		1 & -4 & 0 & 6 \\
+		0 & 3 & 5 & -8 \\
+		0 & 0 & 6 & \frac{-32}{7} \\
+		0 & 0 & 0 & \frac{4}{7}
+	\end{vmatrix}$\\
+	$=\frac{7}{2}(1)(3)(6)(\frac{4}{7})$\\
+	$=-36$
+\end{example}
 
 \end{document}
