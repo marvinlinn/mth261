@@ -3,7 +3,6 @@
 %%%%%%%%%%%%%     PACKAGES     %%%%%%%%%%%%%
 
 \usepackage{marvin} %Custom Package by Marvin Lin
-\usepackage{fancyhdr}
 
 %%%%%%%%%%%%%     DOCUMENT FORMATTING     %%%%%%%%%%%%%
 
@@ -368,9 +367,22 @@ In $\mathbb{R}^3$, nearly all properties are identical to $\mathbb{R}^2$. Equali
 		$c_1\mathbf{v}_1,c_2\mathbf{v}_2, c_3\mathbf{v}_3, \ldots ,c_p\mathbf{v}_p$
 	\end{center}
 \end{definition}
-\begin{center}
-	INCLUDE EXAMPLE
-\end{center}
+\begin{example}
+	Suppose $\mathbf{v}_1, \mathbf{v}_2 \epsilon \mathbb{R}^n$. Identify the linear combinations of $\mathbf{v}_1$ \& $\mathbf{v}_2$.
+	\begin{center}
+		$\mathbf{v}_1+\sqrt{3}\mathbf{v}_2$  \checkmark\\
+		$\mathbf{v}_1-\mathbf{v}_2$  \checkmark\\
+		$\mathbf{0}$  \checkmark\\
+		$\mathbf{v}_1$  \checkmark\\
+		$\mathbf{v}_1+\sqrt{3\mathbf{v}_2}$  $\times$\\
+		$\mathbf{v}_1^2+\mathbf{v}_2$  $\times$\\
+		$-\mathbf{v}_1+4\mathbf{v}_2$  \checkmark\\
+		$\pi\mathbf{v}_2$  \checkmark\\
+	\end{center}
+\end{example}
+\begin{example}
+	
+\end{example}
 We can see that a vector equation $x_1\mathbf{v}_1,x_2\mathbf{v}_2, \ldots ,x_p\mathbf{v}_p = \mathbf{b}$ has the same solution set as the linear system whose augmented matrix is:
 \begin{center}
 	 $A = \begin{bmatrix} \mathbf{v}_1 & \mathbf{v}_2 & \ldots & \mathbf{v}_p & \mathbf{b} \end{bmatrix}$
@@ -1103,5 +1115,95 @@ Let $A$ be a square matrix. Let $B$ be obtained from $A$ by a single ERO. Then:
 	$=\frac{7}{2}(1)(3)(6)(\frac{4}{7})$\\
 	$=-36$
 \end{example}
+	Suppose $A$ is an $n\times n$ matrix. Let $U = REF(A)$. So: 
+	\begin{center}
+		$U=\begin{bmatrix}
+			\blacksquare & \star & \star & \ldots & \star \\
+			0 & \blacksquare & \star & \ldots & \star \\
+			0 & 0 & \blacksquare & \ldots & \star \\
+			0& 0 & 0 & \ldots & \blacksquare \\
+		\end{bmatrix}$
+	\end{center}  is obtained through interchange \& replacement. Then det $A$ = $\pm det U = \pm$ (product of main diagonal entries of $U$)\\
 
+	By IMT, $A$ is invertible if it has n pivots. Also, A is singular if it has less than n pivots. If A has less than n pivots, then at least one $\blacksquare=0$. If this is the case, then $det U=0$. Since $det A = \pm detU = \pm 0$
+\begin{theorem}[Addition to the IMT]
+	A square matrix A is invertible iff $det A \neq 0$
+\end{theorem}
+\begin{theorem}
+	If A is square, $det A = det(A^T)$
+\end{theorem}
+Therefore, the transposed matrix does not make a difference in the determinant.
+\begin{theorem}[Multiplicative Property of Determinants]
+	If $A$, $B$ are $n\times n$ matrices, then:
+	\begin{center}
+		$det (AB) = det(A)det(b)$
+	\end{center}
+	Keep in mind that this is only tru for multiplication, not addition.
+\end{theorem}
+
+\chapter{Vector Spaces}
+
+\section{Introduction to Vector Spaces}
+NOTE: This is one of the most important units of Linear Algebra.
+\begin{definition}
+	A \underline{vector space} is a nonempty set V of objects (called vectors) on which two operations are defined--vector addition and scalar multiplication--via ten axioms that mus be true for all $\mathbf{u},\mathbf{v},\mathbf{w}\epsilon V$ and $c,d\epsilon \mathbb{R}$.
+	\begin{enumerate}
+		\item $\mathbf{u}+\mathbf{v}\epsilon V$  (Closed Under +)
+		\item $\mathbf{u}+\mathbf{v} = \mathbf{v}+\mathbf{u}$  (+ is Commutative)
+		\item $(\mathbf{u}+\mathbf{v})+\mathbf{w} = \mathbf{v}+(\mathbf{u}+\mathbf{w})$  (+ is Associative)
+		\item There exists a vector $\mathbf{0}\epsilon v$ such that $\mathbf{u} + \mathbf{0} = \mathbf{0}$  ($\mathbf{0}$ is the + identity)
+		\item For all $\mathbf{u}\epsilon V$, there exists $(-\mathbf{u})\epsilon V$ such that $\mathbf{u}+(-\mathbf{u}) = \mathbf{0}$  ($-\mathbf{u}$ is the + inverse)
+		\item $c\mathbf{u}\epsilon V$  (Closed under scalar Multiplication)
+		\item $(c+d)\mathbf{u}=c\mathbf{u}+c\mathbf{b}$  (Vector Distribution)
+		\item $c(d\mathbf{u}) = (cd)\mathbf{u}$  (Scalar Associativity)
+		\item $1\mathbf{u}=\mathbf{u}$  (1 is the Scalar Multiplicative Identity)
+	\end{enumerate}
+\end{definition}
+\begin{proposition}
+	Let V be a v.s. (vector space) with $\mathbf{u}\epsilon V$ and $c\epsilon \mathbb{R}$:
+	\begin{itemize}
+		\item The additive inverse is unique
+		\item Additive inverses are unique
+		\item $\mathbf{0}\mathbf{u}=\mathbf{0}$
+		\item $c\mathbf{0}=\mathbf{0}$
+		\item $-\mathbf{u}=(-1)\mathbf{u}$
+	\end{itemize}
+\end{proposition}
+Consider $\mathbb{R}^n$. We looked at (ii-v, vii-x). Suppose $\mathbf{u}=\begin{bmatrix} u_1 \\ u_2 \\ \ldots \\ u_n \end{bmatrix}\epsilon \mathbb{R}^n$ \& $\mathbf{v}=\begin{bmatrix} v_1 \\ v_2 \\ \ldots \\ v_n \end{bmatrix}\epsilon \mathbb{R}^n$. Let $c\epsilon \mathbb{R}$. Then,
+\begin{center}
+	$\mathbf{u}+\mathbf{v}=\begin{bmatrix} u_1 \\ u_2 \\ \ldots \\ u_n \end{bmatrix}+\begin{bmatrix} v_1 \\ v_2 \\ \ldots \\ v_n \end{bmatrix}=\begin{bmatrix} u_1+v_1 \\ u_2+v_2 \\ \ldots \\ u_n+v_n \end{bmatrix}$
+\end{center}
+Since $u_n\epsilon \mathbb{R}$ and $v_n\epsilon \mathbb{R}$, $u_n+v_n\epsilon \mathbb{R}$.\\
+Therefore $R^n$ is a v.s.
+\begin{definition}
+
+\end{definition}
+\begin{definition}
+	Let $D$ be a subset of $\mathbb{R}$. Define $\mathbb{F}_D$ to be the set of all functions whose domain is $D$ and whose codomain is $\mathbb{R}$. Let $\mathbf{f},\mathbf{g}\epsilon \mathbb{F}_D$, $c,t \epsilon \mathbb{R}$. Define $\mathbf{f}+\mathbf{g}$ to be the function whose output at $t$ is $\mathbf{f}(t)+\mathbf{g}(t)$. Define $c\mathbf{f}$ to be the function whose output at t is $(c\mathbf{f})(t)=c(\mathbf{f}(t))$.
+\end{definition}
+\subsection*{Subspace Test}
+\begin{definition}
+	Let $V$ be a v.s. A set $H$ is a subspace of $V$ if H is a v.s. and all elements of H are also in $V$
+\end{definition}
+\begin{theorem}
+	Let $V$ be a v.s. Then $H$ is a subspace of $V$ if:
+	\begin{itemize}
+		\item $H$ is nonempty
+		\item $H$ is closed under addition
+		\item $H$ is closed under scalar multiplication
+	\end{itemize}
+\end{theorem}
+Subspaces adopt the features of the greater space!
+\begin{remark}
+	This is a MAJOR time saver in linear algebra.
+\end{remark}
+\begin{definition}
+	The set $\mathbf{P}$ is the set of all polynomials with real coefficients.
+\end{definition}
+\begin{theorem}
+	$\mathbb{P}$ is a subspace of $\mathbb{F}_{\mathbb{R}}$.
+\end{theorem}
+\begin{definition}
+	The set $\mathbb{P}_n$ is the set of all polynomials with real coefficients of degree at most $n$.
+\end{definition}
 \end{document}
