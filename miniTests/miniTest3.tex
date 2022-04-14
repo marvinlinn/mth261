@@ -1,0 +1,202 @@
+\documentclass{report}
+
+\usepackage{marvin} %found on https://github.com/marvinlinn/latexSetup. Add files to your local MiKTeX environment in (MiKTex Console > Settings > Directories > Add) and add the latexSetup folder.
+
+\title{Winter 2022 MTH 261 Mini Test 3}
+\author{Marvin Lin}
+\date{March 2022}
+
+\begin{document}
+
+\maketitle
+
+\section*{Question 1}
+\begin{example}
+    Let $A = \begin{bmatrix} 2 & 6 & 14 & 8 \\ 1 & 0 & 0 & 2 \\ -1 & -3 & -5 & 4 \\ -1 & 0 & -7 & 0 \end{bmatrix}$. 
+    \begin{enumerate}
+    \item Compute $\det A$. 
+    \item Determine if $A$ is invertible or singular. Justify your answer as specifically as possible.
+    \item Are the vectors $\begin{bmatrix} 2 \\ 1 \\ -1 \\ -1 \end{bmatrix}, \begin{bmatrix} 14 \\ 0 \\ -5 \\ -7 \end{bmatrix}, \begin{bmatrix} 6 \\ 0 \\ -3 \\ 0 \end{bmatrix}, \begin{bmatrix} 8 \\ 2 \\ 4 \\ 0 \end{bmatrix}$ linearly independent? Why or why not?
+    \item Does the set of vectors $\left\{\begin{bmatrix} 2 \\ 1 \\ -1 \\ -1 \end{bmatrix}, \begin{bmatrix} 14 \\ 0 \\ -5 \\ -7 \end{bmatrix}, \begin{bmatrix} 6 \\ 0 \\ -3 \\ 0 \end{bmatrix}, \begin{bmatrix} 8 \\ 2 \\ 4 \\ 0 \end{bmatrix}\right\}$ span $\mathbb{R}^4$? Why or why not?
+    \end{enumerate}
+\end{example}
+\subsubsection*{Part 1}
+$\begin{vmatrix}
+    2 & 6 & 14 & 8 \\ 
+    1 & 0 & 0 & 2 \\ 
+    -1 & -3 & -5 & 4 \\ 
+    -1 & 0 & -7 & 0
+\end{vmatrix}$\\\vspace{3mm}
+$=-\begin{vmatrix}
+    1 & 0 & 0 & 2 \\
+    2 & 6 & 14 & 8 \\ 
+    -1 & -3 & -5 & 4 \\ 
+    -1 & 0 & -7 & 0
+\end{vmatrix}$\\\vspace{3mm}
+$=-\begin{vmatrix}
+    1 & 0 & 0 & 2 \\
+    0 & 6 & 14 & 4 \\ 
+    0 & -3 & -5 & 6 \\ 
+    0 & 0 & -7 & 2
+\end{vmatrix}$\\\vspace{3mm}
+$=-2\begin{vmatrix}
+    1 & 0 & 0 & 2 \\
+    0 & 3 & 7 & 2 \\ 
+    0 & -3 & -5 & 6 \\ 
+    0 & 0 & -7 & 2
+\end{vmatrix}$\\\vspace{3mm}
+$=-2\begin{vmatrix}
+    1 & 0 & 0 & 2 \\
+    0 & 3 & 7 & 2 \\ 
+    0 & 0 & 2 & 8 \\ 
+    0 & 0 & -7 & 2
+\end{vmatrix}$\\\vspace{3mm}
+$=-4\begin{vmatrix}
+    1 & 0 & 0 & 2 \\
+    0 & 3 & 7 & 2 \\ 
+    0 & 0 & 1 & 4 \\ 
+    0 & 0 & -7 & 2
+\end{vmatrix}$\\\vspace{3mm}
+$=-4\begin{vmatrix}
+    1 & 0 & 0 & 2 \\
+    0 & 3 & 7 & 2 \\ 
+    0 & 0 & 1 & 4 \\ 
+    0 & 0 & 0 & 30
+\end{vmatrix}$\\\vspace{3mm}
+$=-4(1)(3)(1)(30)$\\\vspace{3mm}
+$=-360$
+
+\subsubsection*{Part 2}
+Since det $A$ is not equal to 0, we know that $A$ is invertible by the Invertible Matrix Theorem (IMT).
+
+\subsubsection*{Part 3}
+By the Invertible Matrix Theorem, we know that because $A$ is invertible, the columns of A are also linearly independent, which happens to be the matrix we took the determinant of. Therefore, we know that the vectors are linearly independent.
+
+\subsubsection*{Part 4}
+Yes, it does span $\mathbb{R}^4$, as the invertible matrix theorem states that if the matrix $A$ with size $n\times n$ is invertible, then the matrix also spans $\mathbb{R}^4$.
+\clearpage
+
+\section*{Question 2}
+\begin{example}
+    Let $D$ be the set of all diagonal $2 \times 2$ matrices. That is
+    $$D = \left\{ \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix} \bigg|\ a, b \in \mathbb{R} \right\}.$$
+    
+    Use the subspace test to prove that $D$ is a subspace of $M_{2 \times 2}$.
+\end{example}
+Most notably, we can see that $D$ is a subset of $M_{2\times2}$\\
+
+First, we can prove that the set is not empty. We can determine that the set is not empty as $\begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix}$ exists in the set, and both $a$ and $b$ are real numbers.\\
+
+Second, we can determine that the set is closed under vector addition:
+\begin{center}
+    $A_1 = \begin{bmatrix} a_1 & 0 \\ 0 & b_2 \end{bmatrix}$\\
+    $A_2 = \begin{bmatrix} a_2 & 0 \\ 0 & b_2 \end{bmatrix}$\\
+    $A_1 + A_2 = \begin{bmatrix} a_1 & 0 \\ 0 & b_1 \end{bmatrix} + \begin{bmatrix} a_2 & 0 \\ 0 & b_2 \end{bmatrix} = \begin{bmatrix} a_1+a_2 & 0 \\ 0 & b_1+b_2 \end{bmatrix} \epsilon M_{2\times2}$\\
+\end{center}
+
+Lastly, we can determine that the set is closed under scalar multiplication:
+\begin{center}
+    $cA = c\begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix}$\\
+    $= c\begin{bmatrix} ca & 0 \\ 0 & cb \end{bmatrix}\epsilon M_{2\times2}$\\
+\end{center}
+Therefore, it can be determined that the $D$ is a subspace of $M_{2\times 2}$ by the subspace test.
+\clearpage
+
+\section*{Question 3}
+\begin{example}
+    Let $A = \begin{bmatrix} 1 & 1 & -1 \\ 1 & -1 & 1 \\ -1 & 1 & 1 \end{bmatrix}$.
+    \begin{enumerate}
+     \item What does it mean for $\mathbf{x}$ to be in $Col A$? 
+     \item What does it mean for $\mathbf{x}$ to be in $Nul A$?
+     \item Find a spanning set for $Col A$.
+     \item Find a spanning set for $Nul A$.
+    \end{enumerate}
+\end{example}
+
+\subsubsection*{Part 1}
+
+For $\mathbf{x}$ to be in $Col A$, it means that the vector exists as some linear combination of the spanning set of for $Col A$, which is simply the columns of $A$.
+
+\subsubsection*{Part 2}
+
+For $\mathbf{x}$ to be in $Nul A$, it means that the vector exists as some linear combination of the spanning set of for $Nul A$, which can be found by solving the homogenous equation and then using the vectors corresponding to $\mathbf{x}$ in parametric vector form.
+
+\subsubsection*{Part 3}
+The spanning set is simply the set of all of the columns in the matrix $A$. Therefore:
+\begin{center}
+    $\left\{
+        \begin{bmatrix} 1 \\ 1 \\ -1 \end{bmatrix}
+        \begin{bmatrix} 1 \\ -1 \\ 1 \end{bmatrix}
+        \begin{bmatrix} -1 \\ 1 \\ 1 \end{bmatrix}
+    \right\}$ 
+\end{center}
+is the spanning set.
+\subsubsection*{Part 4}
+\begin{center}
+    $A\mathbf{x}=\mathbf{0}$\\
+    $\begin{bmatrix} 1 & 1 & -1 \\ 1 & -1 & 1 \\ -1 & 1 & 1 \end{bmatrix}\begin{bmatrix}
+        x_1 \\
+        x_2 \\
+        x_3
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        0 \\
+        0 \\
+        0
+    \end{bmatrix}$
+\end{center}
+
+Creating an augmented matrix, we get:
+
+\begin{center}
+    $\begin{bmatrix} 
+        1 & 1 & -1 & 0\\ 
+        1 & -1 & 1 & 0\\ 
+        -1 & 1 & 1 & 0
+    \end{bmatrix}$\\\vspace{3mm}
+    $\begin{bmatrix} 
+        1 & 1 & -1 & 0\\ 
+        0 & -2 & 2 & 0\\ 
+        0 & 2 & 0 & 0
+    \end{bmatrix}$\\\vspace{3mm}
+    $\begin{bmatrix} 
+        1 & 1 & -1 & 0\\ 
+        0 & -2 & 2 & 0\\ 
+        0 & 0 & 2 & 0
+    \end{bmatrix}$\\\vspace{3mm}
+    $\begin{bmatrix} 
+        1 & 1 & -1 & 0\\ 
+        0 & 1 & -1 & 0\\ 
+        0 & 0 & 1 & 0
+    \end{bmatrix}$\\\vspace{3mm}
+    $\begin{bmatrix} 
+        1 & 1 & -1 & 0\\ 
+        0 & 1 & 0 & 0\\ 
+        0 & 0 & 1 & 0
+    \end{bmatrix}$\\\vspace{3mm}
+    $\begin{bmatrix} 
+        1 & 1 & 0 & 0\\ 
+        0 & 1 & 0 & 0\\ 
+        0 & 0 & 1 & 0
+    \end{bmatrix}$\\\vspace{3mm}
+    $\begin{bmatrix} 
+        1 & 0 & 0 & 0\\ 
+        0 & 1 & 0 & 0\\ 
+        0 & 0 & 1 & 0
+    \end{bmatrix}$\\\vspace{3mm}
+    Given the identity matrix after row reduction, we know that the resulting $\mathbf{x}$ is simply $\mathbf{0}$. Therefore, the spanning set is simply:\\ 
+    $\mathbf{x}$ = $\mathbf{0} = \begin{bmatrix}
+        0 \\
+        0 \\
+        0
+    \end{bmatrix}$\\
+    $\left\{ 
+        \begin{bmatrix}
+            0 \\
+            0 \\
+            0
+        \end{bmatrix}
+    \right\}$
+\end{center}
+
+\end{document}

@@ -1185,7 +1185,7 @@ Therefore $R^n$ is a v.s.
 \begin{definition}
 	Let $V$ be a v.s. A set $H$ is a subspace of $V$ if H is a v.s. and all elements of H are also in $V$
 \end{definition}
-\begin{theorem}
+\begin{theorem}[Subspace Test]
 	Let $V$ be a v.s. Then $H$ is a subspace of $V$ if:
 	\begin{itemize}
 		\item $H$ is nonempty
@@ -1206,4 +1206,62 @@ Subspaces adopt the features of the greater space!
 \begin{definition}
 	The set $\mathbb{P}_n$ is the set of all polynomials with real coefficients of degree at most $n$.
 \end{definition}
+We know that $\mathbb{R}^n$, $M_{m\times n}$, $\mathbb{F}_D$, $\mathbb{P}$, $\mathbb{P}_n$ are vector spaces.
+\begin{example}
+	Show $\mathbb{P}_n$ is a v.s.s for $n=1,2,3,\ldots$\\
+	Let's use the subspace test. Notice $\mathbb{P}_n$ is a subspace of $\mathbb{F}_\mathbb{R}$, since ever polynomial in $\mathbb{P}_n$ is a function whose domain is $\mathbb{R}$.\\
+	We want to show that $\mathbb{P}_n$ is nonempt. Notice $t^n \epsilon \mathbb{P}_n$, so $\mathbb{P}_n$ is nonempty.\\
+	Let $\mathbf{a}(t)=a_0+a_1t+\ldots+a_nt^n$\\
+	$\mathbf{b}(t)=b_0+b_1t+\ldots+b_nt^n$\\
+	Who both $\epsilon \mathbb{P}_n$. We want to show that $\mathbf{a}(t)+\mathbf{b}(t)\epsilon \mathbb{P}_n$. Then:\\
+\end{example}
+\chapter{hi}
+\chapter{hi}
+\section{hi}
+\section{hi}
+\section{hi}
+\section{hi}
+
+\clearpage
+
+The Gram-Schmidt Process is used to find an orthogonal basis that can be used in lieu of a given basis. Given a basis $\{ \mathbf{x}_1, \ldots, \mathbf{x}_p \}$ for a subspace $W$ of $\mathbb{R}^n$, let:
+
+\begin{center}
+	$
+	\mathbf{v}_1 = \mathbf{x}_1$ \\
+	$\mathbf{v}_2 = \mathbf{x}_2 - proj_{\mathbf{v}_1}\mathbf{x}_2$ \\
+	$\mathbf{v}_3 = \mathbf{x}_3 - proj_{\mathbf{v}_1}\mathbf{x}_3 - proj_{\mathbf{v}_2}\mathbf{x}_3$ \\
+	$\vdots$ \\
+	$\mathbf{v}_p = \mathbf{x}_p - proj_{\mathbf{v}_1}\mathbf{x}_p - proj_{\mathbf{v}_2}\mathbf{x}_p - \ldots - proj_{\mathbf{v}_{p-1}}\mathbf{x}_p
+	$
+\end{center}
+
+Then $\{ \mathbf{v}_1, \ldots, \mathbf{v}_p \}$ is an orthogonal basis for $W$.
+
+\begin{example}
+	If $\mathbf{x}_1 = \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}, \mathbf{x}_2 = \begin{bmatrix} 0 \\ 1 \\ 1 \\ 1 \end{bmatrix}, \mathbf{x}_3 = \begin{bmatrix} 0 \\ 0 \\ 1 \\ 1 \end{bmatrix},$ and $X = \{\mathbf{x}_1, \mathbf{x}_2, \mathbf{x}_3\},$ then $X$ is a basis for the subspace $W$ of $\mathbb{R}^4$ Construct an orthonormal basis for W.
+\end{example}
+\begin{center}
+	Let $A = \begin{bmatrix}
+		1 & 0 & 0 \\
+		1 & 1 & 0 \\
+		1 & 1 & 1 \\
+		1 & 1 & 1 
+	\end{bmatrix}\sim 
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0 & 1 \\
+		0 & 0 & 0 
+	\end{bmatrix}$\\\vspace{3mm}
+	Since $W =$ Col$A$, we can write the vectors as:\\\vspace{3mm}
+	$\mathbf{y}=c_1\mathbf{x}_1 + c_2\mathbf{x}_2 + c_3\mathbf{x}_3$\\\vspace{3mm}
+	Applying the Gram-Schmidt Process, we can find that:\\\vspace{3mm}
+	$\mathbf{v}_1 = \mathbf{x}_1 = \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}$ \\\vspace{3mm}
+	$\mathbf{v}_2 = \mathbf{x}_2 - proj_{\mathbf{v}_1}\mathbf{x}_2 = \begin{bmatrix} -\frac{3}{4} \\ \frac{1}{4} \\ \frac{1}{4} \\ \frac{1}{4} \end{bmatrix}$ \\\vspace{3mm}
+	$\mathbf{v}_3 = \mathbf{x}_3 - proj_{\mathbf{v}_1}\mathbf{x}_3 - proj_{\mathbf{v}_2}\mathbf{x}_3 = \begin{bmatrix} 0 \\ -\frac{2}{3} \\ \frac{1}{3} \\ \frac{1}{3} \end{bmatrix}$ \\\vspace{3mm}
+	Then, we can find the orthogonal basis for $W$ to be $\{\begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}, \begin{bmatrix} -\frac{3}{4} \\ \frac{1}{4} \\ \frac{1}{4} \\ \frac{1}{4} \end{bmatrix}, \begin{bmatrix} 0 \\ -\frac{2}{3} \\ \frac{1}{3} \\ \frac{1}{3} \end{bmatrix} \}$\\\vspace{3mm}
+	We can then simply normalize each to find the orthonormal basis for $W$
+\end{center}
+
 \end{document}
